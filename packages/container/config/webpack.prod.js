@@ -17,6 +17,7 @@ const prodConfig = {
       remotes: {
         // domain -> when deploy
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        auth: 'auth@http://localhost:8082/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),
