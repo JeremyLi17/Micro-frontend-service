@@ -5,16 +5,16 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 
-import Landing from './components/Landing';
-import Pricing from './components/Pricing';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 
 // for generate random classname
 const generateClassName = createGenerateClassName({
   // whenever classname with prefix 'ma'
-  productionPrefix: 'ma',
+  productionPrefix: 'au',
 });
 
-const App = ({ history }) => {
+const App = ({ history, onSignIn }) => {
   return (
     <div>
       {/* StylesProvide is a React compontent is used to customize 
@@ -22,8 +22,12 @@ const App = ({ history }) => {
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/pricing" component={Pricing} />
-            <Route path="/" component={Landing} />
+            <Route path="/auth/signin">
+              <Signin onSignIn={onSignIn} />
+            </Route>
+            <Route path="/auth/signup">
+              <Signup onSignIn={onSignIn} />
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>
